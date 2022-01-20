@@ -1,0 +1,27 @@
+.img-capa {
+    width: 100%;
+}
+
+.openinfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    z-index: 3;
+    opacity: 0;
+    display: flex;
+    transition: .2s;
+    font-size: 4rem;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+}
+
+.openinfo:hover {
+    background-color: rgba(0, 0, 0, .8);
+    color: red;
+    opacity: 1;
+    transition: .2s;
+}
