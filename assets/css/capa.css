@@ -1,3 +1,11 @@
+.capa{
+    cursor: pointer;
+    transition: .2s;
+}
+.capa:hover{
+    transform: scale(1.05);
+    transition: .2s;
+}
 .img-capa {
     width: 100%;
 }

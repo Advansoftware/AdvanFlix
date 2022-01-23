@@ -1,18 +1,21 @@
 @import url('capa.css');
-body{
+@import url('info.css');
+
+body {
     background-color: black;
 }
+
 .netflix-logo {
     font-family: 'Bebas Neue', cursive;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Bebas Neue', cursive;
     color: #fff;
 }
 
 .card-login {
-    background-color: #343a40ee !important;
+    background-color: #000000d4 !important;
     color: #fff;
 }
 
@@ -40,49 +43,87 @@ h1, h2 {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0; 
+    right: 0;
 }
 
 .logo {
     max-width: 230px;
     margin: 1rem;
 }
-.bg-black{
+
+.bg-black {
     background-color: black;
 }
-.slider{
+
+.slider {
     filter: brightness(0.7);
     height: 80vh;
 }
+
 .carousel-control-next, .carousel-control-prev {
     width: 5%;
     color: #fff;
     background-color: transparent;
     border: 0px solid;
 }
-.slide-content{
-    background-color: red;
+
+.slide-content {
+    border-radius: 0px;
     width: 40%;
     top: 0;
     left: 0;
     height: 100%;
     background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(0, 0, 0,.93) 80%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, .93) 80%, rgba(0, 0, 0, .13) 100%);
     border: 0px solid;
 }
-.btn-danger-slider{
+
+.btn-danger-slider {
     background-color: #dc1a28;
     padding: 10px 15px 10px 15px;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
-    transition: .2s;
+    transition: .1s;
     border-radius: 0px;
     outline: none;
+    cursor: pointer;
 }
-.btn-danger-slider:hover{
-    filter: brightness(.8);
+
+.btn-danger-slider:hover {
+    filter: brightness(.9);
     color: #fff;
     box-shadow: 1px 2px 2px #6b1016;
-    transition: .2s;
+    transition: .1s;
+}
+
+.btn-danger-slider:active {
+
+    transform: scale(.9);
+}
+
+.btn-danger-slider:focus {
+    box-shadow: 0 0 0 #000 !important;
+}
+
+.card-login .form-outline .form-control {
+    background: #333;
+    color: #fff;
+    padding: 16px 20px 15px;
+    border: 0px solid !important; 
+}
+.card-login .form-outline .form-control.focus{
+    outline: none !important;
+    border-color: 0px solid !important; 
+}
+.card-login .form-label {
+    position: absolute !important;
+    padding-top: 1rem !important
+}
+.card-login .card-header, .card-login .card-footer{
+    background-color: transparent !important;
+}
+.logo-item{
+    max-width: 250px;
+    max-height: 120px;
 }
