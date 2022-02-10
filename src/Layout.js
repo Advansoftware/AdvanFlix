@@ -1,6 +1,7 @@
 import { experimentalStyled } from "@mui/material";
+import Footer from "./Footer";
 import Header from "./Header";
-import Login from "./login/Login";
+import RoutesItem from "./RoutesItem";
 
 
 const LayoutRoot = experimentalStyled('div')(({ theme }) => ({
@@ -8,20 +9,23 @@ const LayoutRoot = experimentalStyled('div')(({ theme }) => ({
     display: 'flex',
     height: '100%',
     overflow: 'hidden',
-    width: '100%'
+    width: '100%',
+    margin: 0,
+    padding: 0,
 }));
 const LayoutWrapper = experimentalStyled('div')(({ theme }) => ({
     display: 'flex',
     flex: '1 1 auto',
     overflow: 'hidden',
-    paddingTop: '64px',
+    margin: 0,
+    padding: 0,
 }));
 const Layout = () => {
     return (
         <LayoutRoot>
             <Header />
             <LayoutWrapper>
-                <Login />
+                <RoutesItem />
             </LayoutWrapper>
         </LayoutRoot>
     );

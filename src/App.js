@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from './Layout';
+import Api from './services/Api';
 
 function App() {
   const darkTheme = createTheme({
@@ -35,12 +36,27 @@ function App() {
             props: { variant: 'filled' },
             style: {
              backgroundColor: '#333',
+             borderRadius: '5px'
+            },
+          },
+        ],
+      },
+      MuiButton: {
+        variants: [
+          {
+            props: { variant: 'contained' },
+            style: {
+             borderRadius: '0px'
             },
           },
         ],
       },
     },
   });
+  useEffect(()=> {
+    Api.get("/users/romulo27");
+  }, []);
+  
 
   return (
     <ThemeProvider theme={darkTheme}>

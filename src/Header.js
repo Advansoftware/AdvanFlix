@@ -8,10 +8,10 @@ const Header = () => {
     margin: 1rem;
     `;
     const HeaderItem = styled.div`
+    position: fixed;
     background: rgb(2, 0, 36);
     background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
-    z-index: 3;
-    position: fixed;
+    z-index: 4;
     top: 0;
     left: 0;
     right: 0;
