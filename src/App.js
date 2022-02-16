@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Layout from './Layout';
-import Api from './services/Api';
+
 
 function App() {
   const darkTheme = createTheme({
@@ -53,10 +53,7 @@ function App() {
       },
     },
   });
-  useEffect(()=> {
-    Api.get("/users/romulo27");
-  }, []);
-  
+ 
 
   return (
     <ThemeProvider theme={darkTheme}>

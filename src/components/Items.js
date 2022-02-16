@@ -1,9 +1,9 @@
-import { Card, CardActionArea, CardMedia, Container, Grid } from "@mui/material";
+import { Card, CardActionArea, CardMedia, Grid } from "@mui/material";
 import styled from 'styled-components';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import IconButton from '@mui/material/IconButton';
 
-const Items = () => {
+const Items = ({data}) => {
     const OpenInfoCase = styled.div`
     position: absolute;
     top: 0;
@@ -27,8 +27,11 @@ const Items = () => {
         transition: .2s;
     }
     `;
+    
     return (
-        <Grid item xs={2} sx={{ mt: 3 }}>
+        <>
+        {!!data && data.map((item, index) => (  
+            <Grid item md={2} xs={4} sx={{ mt: 3 }} key={index}>
             <Card>
                 <CardActionArea>
                     <OpenInfoCase>
@@ -38,12 +41,16 @@ const Items = () => {
                     </OpenInfoCase>
                     <CardMedia
                         component="img"
-                        image="http://advansoftware.tech:8096/Items/427e095e3762c269b2f83a614c271b65/Images/primary?fillHeight=178&fillWidth=317"
-                        alt="green iguana"
+                        image={`https://advansoftware.tech:8443/jellyfin/Items/${item.Id}/Images/primary?fillHeight=178&fillWidth=317`}
+                        alt={item.Name}
                     />
                 </CardActionArea>
             </Card>
         </Grid>
+        ))}
+                
+        
+        </>
     );
 }
 export default Items;

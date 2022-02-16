@@ -71,7 +71,7 @@ function Item(props) {
         <Paper sx={{
             height: '98vh',
         }}>
-            <SlideItem src='http://advansoftware.tech:8096/Items/427e095e3762c269b2f83a614c271b65/Images/Backdrop' />
+            <SlideItem src='https://advansoftware.tech:8443/jellyfin/Items/ad9af8a15314561f5ee8544594dcfb23/Images/Backdrop' />
             <PaperItem>
                 <Grid
                     container
@@ -81,7 +81,7 @@ function Item(props) {
                     spacing={3}
                 >
                     <Grid item xs={12}>
-                        <LogoItem src="http://advansoftware.tech:8096/Items/427e095e3762c269b2f83a614c271b65/Images/logo?fillHeight=178&fillWidth=317" />
+                        <LogoItem src="https://advansoftware.tech:8443/jellyfin/Items/ad9af8a15314561f5ee8544594dcfb23/Images/logo?fillHeight=178&fillWidth=317" />
                     </Grid>
                     <Grid item xs={12}>
                         <Typography variant='h4'>{props.item.name}</Typography>
