@@ -41,7 +41,7 @@ const Items = ({data}) => {
                     </OpenInfoCase>
                     <CardMedia
                         component="img"
-                        image={`https://advansoftware.tech:8443/jellyfin/Items/${item.Id}/Images/primary?fillHeight=275&fillWidth=178`}
+                        image={`https://advansoftware.tech:8443/Items/${item.Id}/Images/primary?fillHeight=275&fillWidth=178`}
                         alt={item.Name}
                     />
                 </CardActionArea>

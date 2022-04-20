@@ -1,20 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper, Button, Grid, Typography } from '@mui/material'
 import styled from 'styled-components';
+import Api from '../services/Api';
 
 export default function CarouselItem(props) {
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        },
-        {
-            name: "Random Name #2",
-            description: "Hello World!"
-        }
-    ]
+    const [itemdata, setItemData] = useState(null);
+    const [items, setItems] =useState(null);
 
+    useEffect(()=> {
+        Api.get(`Users/e27bbb6b9a1a468a80b17e216cec3909/Items/Latest?api_key=f13ed9c8b0fb4c5c8df3ae63c0105535`)
+        .then(data => setItemData(data.data))
+        .catch(err => console.error(err));
+      }, []);
+       async function f(element, dados) {
+        try{
+            let data = await Api.get(`Users/e27bbb6b9a1a468a80b17e216cec3909/Items/${element.Id}?api_key=f13ed9c8b0fb4c5c8df3ae63c0105535`);
+            
+            dados.push(
+                {
+                    id: element.Id,
+                    name: element.Name,
+                    logo: `https://advansoftware.tech:8443/jellyfin/Items/${element.Id}/Images/logo?fillHeight=178&fillWidth=317`,
+                    image: `https://advansoftware.tech:8443/jellyfin/Items/${element.Id}/Images/Backdrop`,
+                    description: data.data.Overview,
+                });
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+      useEffect(()=> {
+            let dados=[];
+            if(!!itemdata){
+                itemdata.forEach(element => {
+                    f(element,dados);
+                });  
+            }
+            if(!!dados.length>0){
+                setItems(dados);  
+            } 
+            console.log('size',dados.length);
+            
+      },[itemdata]);
+      if(!items){
+          return null;
+      }
+      console.log(items);
     return (
         <div
             style={{
@@ -26,7 +58,7 @@ export default function CarouselItem(props) {
                 indicators={false}
             >
                 {
-                    items.map((item, i) => <Item key={i} item={item} />)
+                    items.map((item, i) => {<>{console.log(item)}<Item key={i} item={item} /></>})
                 }
             </Carousel>
         </div>

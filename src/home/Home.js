@@ -11,7 +11,7 @@ const Home = () => {
     width: 100%;
     `;
     useEffect(()=> {
-        Api.get("Users/648075ddb989456184c3d04aa3bf88da/Items?IncludeItemTypes=movie&ImageTypes=Backdrop&ParentId=af92f2d68eea947c7f9df41836afb987&userId=020893e85cae4fbba93d4e1ea1c0db6e&api_key=1391a3e057cc4fb3a3a17cc20842033c")
+        Api.get("Users/e27bbb6b9a1a468a80b17e216cec3909/Items?IncludeItemTypes=movie&ImageTypes=Backdrop&ParentId=af92f2d68eea947c7f9df41836afb987&api_key=f13ed9c8b0fb4c5c8df3ae63c0105535&userId=020893e85cae4fbba93d4e1ea1c0db6e&StartIndex=0&Limit=30")
         .then(data => setData(data.data.Items))
         .catch(err => console.error(err));
       }, []);
