@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import IconButton from '@mui/material/IconButton';
 
-const Items = ({data}) => {
+const Items = ({ data }) => {
     const OpenInfoCase = styled.div`
     position: absolute;
     top: 0;
@@ -27,29 +27,29 @@ const Items = ({data}) => {
         transition: .2s;
     }
     `;
-    
+
     return (
         <>
-        {!!data && data.map((item, index) => (  
-            <Grid item md={2} xs={4} sx={{ mt: 3 }} key={index}>
-            <Card>
-                <CardActionArea>
-                    <OpenInfoCase>
-                        <IconButton color="primary" aria-label="add an alarm">
-                            <PlayArrowIcon fontSize="large" />
-                        </IconButton>
-                    </OpenInfoCase>
-                    <CardMedia
-                        component="img"
-                        image={`https://advansoftware.tech:8443/Items/${item.Id}/Images/primary?fillHeight=275&fillWidth=178`}
-                        alt={item.Name}
-                    />
-                </CardActionArea>
-            </Card>
-        </Grid>
-        ))}
-                
-        
+            {!!data && data.map((item, index) => (
+                <Grid item md={2} xs={4} sx={{ mt: 3 }} key={index}>
+                    <Card>
+                        <CardActionArea>
+                            <OpenInfoCase>
+                                <IconButton color="primary" aria-label="add an alarm">
+                                    <PlayArrowIcon fontSize="large" />
+                                </IconButton>
+                            </OpenInfoCase>
+                            <CardMedia
+                                component="img"
+                                image={item.image}
+                                alt={item.name}
+                            />
+                        </CardActionArea>
+                    </Card>
+                </Grid>
+            ))}
+
+
         </>
     );
 }

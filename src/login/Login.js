@@ -24,7 +24,7 @@ const Login = () => {
     return (
         <>
             <div style={myStyle}> </div>
-            <Container maxWidth='xs' sx={{ mt: 7 }} style={{ zIndex: 2 }}>
+            <Container maxWidth='xs' sx={{ mt: 13 }} style={{ zIndex: 2 }}>
                 <Card sx={{ backgroundColor: 'rgba(0,0,0,.9)' }}>
                     <CardContent>
                         <Typography variant='h4' sx={{ mb: 2 }} >

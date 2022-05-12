@@ -2,51 +2,55 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper, Button, Grid, Typography } from '@mui/material'
 import styled from 'styled-components';
-import Api from '../services/Api';
+import axios from 'axios';
 
 export default function CarouselItem(props) {
     const [itemdata, setItemData] = useState(null);
-    const [items, setItems] =useState(null);
+    const [items, setItems] = useState(null);
 
-    useEffect(()=> {
-        Api.get(`Users/e27bbb6b9a1a468a80b17e216cec3909/Items/Latest?api_key=f13ed9c8b0fb4c5c8df3ae63c0105535`)
-        .then(data => setItemData(data.data))
-        .catch(err => console.error(err));
-      }, []);
-       async function f(element, dados) {
-        try{
-            let data = await Api.get(`Users/e27bbb6b9a1a468a80b17e216cec3909/Items/${element.Id}?api_key=f13ed9c8b0fb4c5c8df3ae63c0105535`);
-            
+    const options = {
+        method: 'GET',
+        url: 'http://localhost:3333/listcarousel',
+    };
+
+    useEffect(() => {
+        axios.request(options).then(function (response) {
+            setItemData(response.data)
+
+        }).catch(function (error) {
+            console.error(error);
+        });
+    }, []);
+
+    async function f(element, dados) {
+        try {
             dados.push(
                 {
-                    id: element.Id,
-                    name: element.Name,
-                    logo: `https://advansoftware.tech:8443/jellyfin/Items/${element.Id}/Images/logo?fillHeight=178&fillWidth=317`,
-                    image: `https://advansoftware.tech:8443/jellyfin/Items/${element.Id}/Images/Backdrop`,
-                    description: data.data.Overview,
+                    name: element.name,
+                    logo: element.logo,
+                    image: element.image,
+                    description: element.description,
                 });
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }
 
-      useEffect(()=> {
-            let dados=[];
-            if(!!itemdata){
-                itemdata.forEach(element => {
-                    f(element,dados);
-                });  
-            }
-            if(!!dados.length>0){
-                setItems(dados);  
-            } 
-            console.log('size',dados.length);
-            
-      },[itemdata]);
-      if(!items){
-          return null;
-      }
-      console.log(items);
+    useEffect(() => {
+        let dados = [];
+        if (!!itemdata) {
+            itemdata.forEach(element => {
+                f(element, dados);
+            });
+        }
+        if (!!dados.length > 0) {
+            setItems(dados);
+        }
+    }, [itemdata]);
+    console.log(items)
+    if (!items) {
+        return null;
+    }
     return (
         <div
             style={{
@@ -58,10 +62,10 @@ export default function CarouselItem(props) {
                 indicators={false}
             >
                 {
-                    items.map((item, i) => {<>{console.log(item)}<Item key={i} item={item} /></>})
+                    items.map((item, i) => { return (<> <Item key={i} item={item} /></>) })
                 }
             </Carousel>
-        </div>
+        </div >
     )
 }
 
@@ -103,7 +107,7 @@ function Item(props) {
         <Paper sx={{
             height: '98vh',
         }}>
-            <SlideItem src='https://advansoftware.tech:8443/jellyfin/Items/ad9af8a15314561f5ee8544594dcfb23/Images/Backdrop' />
+            <SlideItem src={props.item.image} />
             <PaperItem>
                 <Grid
                     container
@@ -113,7 +117,7 @@ function Item(props) {
                     spacing={3}
                 >
                     <Grid item xs={12}>
-                        <LogoItem src="https://advansoftware.tech:8443/jellyfin/Items/ad9af8a15314561f5ee8544594dcfb23/Images/logo?fillHeight=178&fillWidth=317" />
+                        <LogoItem src={props.item.image} />
                     </Grid>
                     <Grid item xs={12}>
                         <Typography variant='h4'>{props.item.name}</Typography>
