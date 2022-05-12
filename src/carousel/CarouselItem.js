@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button, Grid, Typography } from '@mui/material'
+import { Paper, Button, Grid, Typography, useMediaQuery } from '@mui/material'
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -70,6 +70,7 @@ export default function CarouselItem(props) {
 }
 
 function Item(props) {
+    const matches = useMediaQuery('(min-width:600px)');
     const PaperItem = styled.div`
     border-radius: 0px;
     position: absolute;
@@ -107,7 +108,7 @@ function Item(props) {
         <Paper sx={{
             height: '98vh',
         }}>
-            <SlideItem src={props.item.image} />
+            <SlideItem src={matches ? props.item.image : props.item.logo} />
             <PaperItem>
                 <Grid
                     container
@@ -116,9 +117,9 @@ function Item(props) {
                     alignItems="flex-start"
                     spacing={3}
                 >
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                         <LogoItem src={props.item.image} />
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12}>
                         <Typography variant='h4'>{props.item.name}</Typography>
                         <p>{props.item.description}</p>

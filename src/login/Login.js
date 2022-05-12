@@ -8,6 +8,7 @@ import {
     Typography
 } from "@mui/material";
 import LoadingButton from '@mui/lab/LoadingButton';
+import { useNavigate } from "react-router-dom";
 const myStyle = {
     backgroundImage: "url(https://assets.nflxext.com/ffe/siteui/vlv3/6dea7743-5586-45d1-89a2-9569b1bb0340/08a80f4f-28ea-4d9e-b250-e4d3ac127f73/BR-pt-20220207-popsignuptwoweeks-perspective_alpha_website_medium.jpg)",
     opacity: .5,
@@ -21,6 +22,7 @@ const myStyle = {
     zIndex: 0,
 };
 const Login = () => {
+    const navigate = useNavigate()
     return (
         <>
             <div style={myStyle}> </div>
@@ -65,6 +67,7 @@ const Login = () => {
                                     disableElevation
                                     size="large"
                                     fullWidth
+                                    onClick={() => navigate('/home')}
                                 >
                                     Entrar como convidado
                                 </LoadingButton >
