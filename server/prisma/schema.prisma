@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model tvchanel {
+  id String @id @default(uuid())
+
+  link  String
+  image String?
+  name  String
+  group String?
+
+  @@map("tvchanels")
+}
+
+model topPopular {
+  id String @id @default(uuid())
+  
+  name String
+  logo String?
+  image String?
+  description String?
+  link  String?
+
+  @@map("toppopulars")
+}
+
