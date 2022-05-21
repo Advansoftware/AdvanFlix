@@ -6,16 +6,17 @@ Atualmente o projeto aceita sincronizar seus dados com uma playlist no formato m
 
 ### Tecnologias utilizadas
 #### Linguagens e Frameworks
+> <img src="https://user-images.githubusercontent.com/34285356/169661862-84d6b741-8a67-4dc2-b715-639f470284b1.png" width="24px" alt="Html5" title="Html5"/>
+> <img src="https://user-images.githubusercontent.com/34285356/169661912-4f6a7c31-4ad8-4aa2-8f22-7fe20c226809.png" width="24px" alt="Css3" title="Css3"/>
 > <img src="https://user-images.githubusercontent.com/34285356/169661603-ce12c695-0dd5-46d4-b111-9e814656dc86.png" width="24px" alt="Javascript" title="Javascript"/>
 > <img src="https://user-images.githubusercontent.com/34285356/169661740-4b1882ad-eb62-479d-8221-f59feb61b182.png" width="24px" alt="TypeScript" title="TypeScript"/>
 > <img src="https://user-images.githubusercontent.com/34285356/169661812-f16c47e7-fc3d-488c-a083-ba8ecc12b2ff.png" width="24px" alt="ReactJs" title="ReactJs"/>
-> <img src="https://user-images.githubusercontent.com/34285356/169661862-84d6b741-8a67-4dc2-b715-639f470284b1.png" width="24px" alt="ReactJs" title="Html5"/>
-> <img src="https://user-images.githubusercontent.com/34285356/169661912-4f6a7c31-4ad8-4aa2-8f22-7fe20c226809.png" width="24px" alt="Css3" title="Css3"/>
+> <img src="https://user-images.githubusercontent.com/34285356/169662384-35055a6a-8bf7-4325-bb54-1a99d24a577b.png" width="24px" alt="MaterialUI" title="MaterialUI"/>
 > <img src="https://user-images.githubusercontent.com/34285356/169661949-969d9429-d9cd-46da-9bd7-847c4160caa4.png" width="24px" alt="NodeJs" title="NodeJs"/>
 > <img src="https://user-images.githubusercontent.com/34285356/169662009-b157a391-6cde-434d-94ca-3a4923e8cf7b.png" width="24px" alt="MongoDB" title="MongoDB"/>
 > <img src="https://user-images.githubusercontent.com/34285356/169662100-33d40b9b-f1f0-4dd3-895e-e858c8c1633c.png" width="24px" alt="Heroku" title="Heroku"/>
 > <img src="https://user-images.githubusercontent.com/34285356/169662140-c08dcf79-512c-42c5-9653-49023955b807.png" width="24px" alt="Firebase" title="Firebase"/>
-> <img src="https://user-images.githubusercontent.com/34285356/169662384-35055a6a-8bf7-4325-bb54-1a99d24a577b.png" width="24px" alt="MaterialUI" title="MaterialUI"/>
+
 
 
 #### Apis externas
@@ -66,4 +67,4 @@ logo vai abrir o projeto front-end no seguinte endereço [http://localhost:3000]
 
 
 # Demostração do projeto
-## <img src="https://user-images.githubusercontent.com/34285356/169662140-c08dcf79-512c-42c5-9653-49023955b807.png" width="30px" alt="Firebase" title="Firebase"/>[http://advanflix.web](https://advansoftware.web.app/)
+## <img src="https://user-images.githubusercontent.com/34285356/169662140-c08dcf79-512c-42c5-9653-49023955b807.png" width="30px" alt="Firebase" title="Firebase"/>[https://advansoftware.web.app](https://advansoftware.web.app/)
