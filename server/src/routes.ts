@@ -45,7 +45,11 @@ routes.get('/listAll', async (req, res) => {
     const tvchanel = await prisma.tvchanel.findMany({
         skip: 0,
         take: 60,
-    })
+        where: {
+            group: {
+                contains: 'Filmes'
+            }
+        })
     return res.status(200).json(tvchanel);
 });
 
