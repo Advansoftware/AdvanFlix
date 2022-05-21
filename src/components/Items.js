@@ -19,7 +19,8 @@ const Items = ({ data }) => {
     vertical-align: middle;
     align-items: center;
     justify-content: center;
-
+    min-height: 267px;
+    
     &:hover{
         background-color: rgba(0, 0, 0, .8);
         color: red;
