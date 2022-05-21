@@ -14,7 +14,7 @@ const Home = () => {
     `;
     let options = {
         method: 'get',
-        url: 'http://localhost:3333/listAll',
+        url: 'https://advansofware.herokuapp.com/listAll',
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Headers": "Authorization",

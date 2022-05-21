@@ -10,7 +10,7 @@ export default function CarouselItem(props) {
 
     const options = {
         method: 'GET',
-        url: 'http://localhost:3333/listcarousel',
+        url: 'https://advansofware.herokuapp.com/listcarousel',
     };
 
     useEffect(() => {
