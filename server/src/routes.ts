@@ -49,7 +49,8 @@ routes.get('/listAll', async (req, res) => {
             group: {
                 contains: 'Filmes'
             }
-        })
+        }
+    })
     return res.status(200).json(tvchanel);
 });
 

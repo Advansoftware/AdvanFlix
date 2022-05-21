@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper, Button, Grid, Typography, useMediaQuery } from '@mui/material'
@@ -47,7 +49,7 @@ export default function CarouselItem(props) {
             setItems(dados);
         }
     }, [itemdata]);
-    console.log(items)
+
     if (!items) {
         return null;
     }
