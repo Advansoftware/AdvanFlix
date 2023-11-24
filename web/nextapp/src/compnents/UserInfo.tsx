@@ -1,15 +1,14 @@
 interface UserInfoProps{
   user: {
-    name?: string
+    Name?: string
   } | undefined
-
 }
 
 export default function UserInfo({ user }:UserInfoProps) {
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="">
-        Hello {user?.name}
+        Hello {user?.Name}
       </div>
 
     </div>
