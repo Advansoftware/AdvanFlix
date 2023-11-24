@@ -31,6 +31,7 @@ const Login = () => {
       navigate("/home");
     }
   }, [token, navigate]);
+
   return (
     <>
       <div style={myStyle}> </div>
