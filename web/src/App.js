@@ -1,42 +1,42 @@
-import { createTheme, ThemeProvider } from '@mui/material';
-import React from 'react';
-import Layout from './Layout';
-
+import { createTheme, ThemeProvider } from "@mui/material";
+import React from "react";
+import Layout from "./Layout";
+import AuthProvider from "./context/AuthContext";
 
 function App() {
   const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
+      mode: "dark",
       primary: {
-        main: '#d21b1b',
+        main: "#d21b1b",
       },
       secondary: {
-        main: '#f50057',
+        main: "#f50057",
       },
       background: {
-        default: '#010810',
-        paper: '#0f0f25',
+        default: "#010810",
+        paper: "#0f0f25",
       },
       info: {
-        main: '#2f48ea',
+        main: "#2f48ea",
       },
     },
     typography: {
       h4: {
-        fontFamily: 'Bebas Neue',
+        fontFamily: "Bebas Neue",
       },
       h5: {
-        fontFamily: 'Bebas Neue',
+        fontFamily: "Bebas Neue",
       },
     },
     components: {
       MuiTextField: {
         variants: [
           {
-            props: { variant: 'filled' },
+            props: { variant: "filled" },
             style: {
-             backgroundColor: '#333',
-             borderRadius: '5px'
+              backgroundColor: "#333",
+              borderRadius: "5px",
             },
           },
         ],
@@ -44,20 +44,21 @@ function App() {
       MuiButton: {
         variants: [
           {
-            props: { variant: 'contained' },
+            props: { variant: "contained" },
             style: {
-             borderRadius: '0px'
+              borderRadius: "0px",
             },
           },
         ],
       },
     },
   });
- 
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <AuthProvider>
         <Layout />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
