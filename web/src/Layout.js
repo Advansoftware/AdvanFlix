@@ -1,5 +1,4 @@
 import { experimentalStyled } from "@mui/material";
-import Footer from "./Footer";
 import Header from "./Header";
 import RoutesItem from "./RoutesItem";
 import SplashScreen from "./components/SplashScreen";

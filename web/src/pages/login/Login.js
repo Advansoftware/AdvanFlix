@@ -26,7 +26,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { setUser, setPassword, login, loading, token } = useAuth();
   useEffect(() => {
-    console.log(token);
     if (token) {
       navigate("/home");
     }

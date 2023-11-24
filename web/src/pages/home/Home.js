@@ -12,6 +12,7 @@ const Home = () => {
   const ContainerItem = styled.div`
     width: 100%;
   `;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   let options = {
     method: "get",
     url: "https://advansofware.herokuapp.com/listAll",
@@ -26,8 +27,8 @@ const Home = () => {
       .catch(function (error) {
         console.error(error);
       });
-  }, []);
-  console.log(data);
+  }, [options]);
+
   return (
     <ContainerItem>
       <Grid container>
