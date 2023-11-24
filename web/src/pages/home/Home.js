@@ -4,30 +4,33 @@ import { Container, Grid } from "@mui/material";
 import styled from "styled-components";
 import Footer from "../../Footer";
 
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
+import { Apiget } from "../../helpers/ApiServices";
 
 const Home = () => {
   const [data, setData] = useState(null);
   const ContainerItem = styled.div`
     width: 100%;
   `;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  let options = {
-    method: "get",
-    url: "https://advansofware.herokuapp.com/listAll",
-  };
+
+  const getData = useCallback(async () => {
+    try {
+      const data = await Apiget("Movies/Recommendations", "categoryLimit=6");
+      let items = [];
+      data.data.forEach((element) => {
+        element.Items.forEach((item) => {
+          items.push(item);
+        });
+      });
+      setData(items);
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
 
   useEffect(() => {
-    axios
-      .request(options)
-      .then(function (response) {
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, [options]);
+    getData();
+  }, [getData]);
 
   return (
     <ContainerItem>
@@ -35,7 +38,7 @@ const Home = () => {
         <Grid item xs={12}>
           <CarouselItem />
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12}>
           <Container>
             <Grid
               spacing={2}

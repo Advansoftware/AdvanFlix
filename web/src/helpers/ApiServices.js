@@ -2,18 +2,40 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
 const id = uuidv4();
-const deviceName = navigator.userAgent;
+function getBrowserId() {
+  var aKeys = ["MSIE", "Firefox", "Safari", "Chrome", "Opera", "Edg"],
+    sUsrAg = navigator.userAgent,
+    nIdx = aKeys.length - 1;
+
+  for (nIdx; nIdx > -1 && sUsrAg.indexOf(aKeys[nIdx]) === -1; nIdx--);
+
+  return nIdx;
+}
+let devices = [
+  "Internet Explorer",
+  "Firefox",
+  "Safari",
+  "Chrome",
+  "Opera",
+  "Edge Chromium",
+];
+const deviceName = devices[getBrowserId()]; /* navigator.userAgent; */
 const getUrl =
   process.env.REACT_APP_URL || "http://app.advansoftware.shop:8096/";
+let token = JSON.parse(localStorage.getItem("me"));
+let AccessToken = token?.AccessToken || "";
 
 const config = {
   headers: {
-    "X-Emby-Authorization": `MediaBrowser Client="Advanflix", Device="${deviceName}", DeviceId="${id}", Version="0.0.1"`,
+    "X-Emby-Authorization": `MediaBrowser Client="Advanflix", Device="${deviceName}", DeviceId="${id}", Version="0.0.1", Token="${AccessToken}"`,
   },
 };
 
 export const Apiget = async (url, params = null) => {
-  !!params ? (url = getUrl + url + "?" + params) : (url = getUrl + url);
+  let userId = token?.User.Id || "";
+  !!params
+    ? (url = getUrl + url + "?" + "userId=" + userId + "&" + params)
+    : (url = getUrl + url);
   let data = await axios.get(url, config);
   return data;
 };

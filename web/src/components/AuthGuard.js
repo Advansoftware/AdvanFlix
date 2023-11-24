@@ -2,16 +2,16 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
 
-const AuthGuard = ({ chidren }) => {
-  const { token } = useAuth();
+const AuthGuard = ({ children }) => {
+  const { token, userId } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!token) {
+    if (!token || !userId) {
       navigate("/login");
     }
-  }, [navigate, token]);
+  }, [navigate, token, userId]);
   if (!token) return null;
-  return <>{chidren}</>;
+  return <>{children}</>;
 };
 
 export default AuthGuard;

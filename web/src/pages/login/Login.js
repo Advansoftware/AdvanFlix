@@ -11,7 +11,8 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useEffect } from "react";
 const myStyle = {
-  backgroundImage: "url('http://localhost:8096')",
+  backgroundImage:
+    "url('https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/ed31f905-5708-4356-a25a-8f6cebf46e7f/BR-pt-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg')",
   opacity: 0.5,
   left: 0,
   right: 0,
@@ -24,12 +25,12 @@ const myStyle = {
 };
 const Login = () => {
   const navigate = useNavigate();
-  const { setUser, setPassword, login, loading, token } = useAuth();
+  const { setUser, setPassword, login, loading, token, userId } = useAuth();
   useEffect(() => {
-    if (token) {
+    if (token && userId) {
       navigate("/home");
     }
-  }, [token, navigate]);
+  }, [token, navigate, userId]);
 
   return (
     <>

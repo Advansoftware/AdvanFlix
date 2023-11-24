@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
 import AuthGuard from "./components/AuthGuard";
 import SplashScreen from "./components/SplashScreen";
 
@@ -11,6 +10,7 @@ const Loadable = (Component) => (props) =>
     </Suspense>
   );
 const Login = Loadable(React.lazy(() => import("./pages/login/Login")));
+const Home = Loadable(React.lazy(() => import("./pages/home/Home")));
 
 const RoutesItem = () => {
   return (

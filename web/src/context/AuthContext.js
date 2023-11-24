@@ -13,11 +13,13 @@ export default function AuthProvider({ children }) {
   const [message, setMessage] = useState("");
   const [openAlert, setOpenAlert] = useState(false);
   const [messageType, setMessageTipe] = useState("info");
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("me"))) {
       let data = JSON.parse(localStorage.getItem("me"));
       setToken(data);
+      setUserId(data.User.Id);
     }
   }, [me]);
 
@@ -48,6 +50,7 @@ export default function AuthProvider({ children }) {
         login,
         token,
         setUser,
+        userId,
         setPassword,
       }}
     >
