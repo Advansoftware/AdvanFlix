@@ -1,18 +1,17 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from "./home/Home";
-
-import Login from "./login/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/login/Login";
+import Home from "./pages/home/Home";
 
 const RoutesItem = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/home" element={<Home />} />
-            </Routes>
-        </BrowserRouter>
-    )
-}
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default RoutesItem;
