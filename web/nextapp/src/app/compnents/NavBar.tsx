@@ -7,7 +7,7 @@ import Link from "next/link";
 import Logo from "/public/logo.png";
 export default function Navbar() {
   const router = useRouter()
-   const { data: session, status, update } = useSession()
+   const { data: session, status, update } = useSession()   
   const redirect = async () => {
     const data = await signOut({ redirect: false, })
     router.push('/home')
@@ -22,7 +22,7 @@ export default function Navbar() {
   }, [session])
   if (!session) {
     return (
-      <header className="bg-gradient-to-b from-black fixed z-50 top-0 p-2 w-[100%]">
+      <header className="bg-gradient-to-b from-black fixed z-20 top-0 p-2 w-[100%]">
         <Image
         src={Logo}
         alt="logo"

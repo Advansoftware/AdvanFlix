@@ -12,7 +12,7 @@ export const options: NextAuthOptions = {
       },
       async authorize(credentials, req) {
       let base64Credentials = btoa(credentials?.Username + ":" + credentials?.Pw);
-      const res = await fetch(process.env.SERVER_URL+"/Users/AuthenticateByName", {
+      const res = await fetch(process.env.NEXT_PUBLIC_SERVER_URL+"/Users/AuthenticateByName", {
         method: 'POST',
         body: JSON.stringify({Username: credentials?.Username, Pw: credentials?.Pw}),
         headers: {
