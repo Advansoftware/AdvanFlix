@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/compnents/NavBar'
+import Navbar from './compnents/NavBar'
+import { SessionProvider } from 'next-auth/react'
+import Provider from './provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,12 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        <main className='flex min-h-screen items-start justify-center p-6'>
-          {children}
-        </main>
-      </body>
+      <Provider>
+          <body className={inter.className}>
+              <Navbar />
+                <main>
+                    {children}
+                </main>
+            </body>
+        </Provider>
     </html>
   )
 }
